@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* EL NAV */
+nav{
+    width: 100vw;
+    font-family: 'IBM Plex Mono', monospace;
+    position:fixed;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 5%;
+    background-color: white;
+}
+nav img {
+    width: 20px;
+}
+.menuhamburger {
+    position: relative;
+}
+.inputmenu {
+    display: none;
+}
+.inputmenu:checked ~ .menucontenedor {
+    transform: translateX(-100%);
+    transition: all 0.9s ease-in-out;
+    left: calc(100vw);
+}
+.inputmenu:checked ~ label > .rayita {
+    transform: translateY(6px) rotate(45deg);
+    transition: all 0.3s ease-in-out;
+}
+.inputmenu:checked ~ label > .rayita::after {
+    transform: translateY(-6px) rotate(90deg);
+    transition: all 0.3s ease-in-out;
+}
+.inputmenu:checked ~ label > .rayita::before {
+    opacity: 0;
+    transform: translateY(-20px) rotate(90deg);
+    transition: all 0.3s ease-in-out;
+}
+.labelmenu {
+    cursor: pointer;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+.rayita,
+.rayita::after,
+.rayita::before {
+    content: '';
+    width: 18px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+.rayita::after {
+    top: 6px;
+}
+.rayita::before {
+    top: 12px;
+}
+.menucontenedor {
+    position: absolute;
+    bottom: -280px;
+    left: 0px;
+    transform: translateX(100%); 
+    transition: all 0.5s ease-in-out;
+}
+.menucontenedor,
+.menucontenedor ul,
+.menucontenedor li,
+.menucontenedor a {
+    width: 100vw;
+}
+.menucontenedor li {
+    list-style: none;
+}
+.menucontenedor li:last-child {
+    border-bottom: none;
+}
+.menucontenedor a {
+    text-decoration: none;
+    padding: 25px 20px;
+    background-color: #0000EC;
+    display: block;
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.menucontenedor a:hover{
+    color: #00F3BB;
+    text-decoration: line-through;
+}
+.menucontenedor a:active{
+    color:rgb(134, 134, 134);
+    text-decoration: line-through;
+}
+/*//////////// ESCRITORIO ///////////////*/
+@media screen and (min-width: 900px) {
+    nav{
+        height: 80px
+    }
+    nav img {
+        width: 36px;
+    }
+    .labelmenu {
+        display: none;
+    }
+    .menucontenedor {
+        position: static;
+        margin-left: 15px;
+        margin-right: 100px;
+        transform: translateX(1%); *
+        
+    }
+    .menucontenedor,
+    .menucontenedor ul,
+    .menucontenedor li,
+    .menucontenedor a {
+        width: 100%;
+    }
+    .menuhamburger {
+        width: 100%;
+    }
+    .menucontenedor ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menucontenedor li {
+        border: none;
+        margin: 0 10px;
+    }
+    .menucontenedor a {
+        text-align: center;
+        background-color: white;
+        color: #060A24;
+        padding: 1px 1px;
+    }
+}
